@@ -1,0 +1,83 @@
+﻿@model DGA.RelyingParty.OpenID_Connect.MVC.Models.Profile
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@if (Model != null)
+{
+    <table class="table table-striped">
+
+        <tr>
+            <td>
+                UserName
+            </td>
+            <td>
+                @Model.UserName
+            </td>
+        </tr>
+        <tr>
+            <td>
+                FirstName
+            </td>
+            <td>
+                @Model.FirstName
+            </td>
+        </tr>
+        <tr>
+            <td>
+                MiddleName
+            </td>
+            <td>
+                @Model.MiddleName
+            </td>
+        </tr>
+        <tr>
+            <td>
+                LastName
+            </td>
+            <td>
+                @Model.LastName
+            </td>
+        </tr>
+        <tr>
+            <td>
+                CitizenId
+            </td>
+            <td>
+                @Model.CitizenId
+            </td>
+        </tr>
+        <tr>
+            <td>
+                IALLevel
+            </td>
+            <td>
+                @Model.IALLevel
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Mobile
+            </td>
+            <td>
+                @Model.Mobile
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email
+            </td>
+            <td>
+                @Model.Email
+            </td>
+        </tr>
+
+    </table>
+
+}
+else
+{
+    <h3 style="color: red">No profile found!!!!</h3>
+
+}

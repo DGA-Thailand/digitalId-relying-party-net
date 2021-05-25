@@ -1,0 +1,81 @@
+﻿@page
+@model DGA.RelyingParty.OpenID_Connect.Pages.ProfileModel
+@{
+}
+@if (Model.UserProfile != null)
+{
+<table class="table table-striped">
+
+    <tr>
+        <td>
+            UserName
+        </td>
+        <td>
+            @Model.UserProfile.UserName
+        </td>
+    </tr>
+    <tr>
+        <td>
+            FirstName
+        </td>
+        <td>
+            @Model.UserProfile.FirstName
+        </td>
+    </tr>
+    <tr>
+        <td>
+            MiddleName
+        </td>
+        <td>
+            @Model.UserProfile.MiddleName
+        </td>
+    </tr>
+    <tr>
+        <td>
+            LastName
+        </td>
+        <td>
+            @Model.UserProfile.LastName
+        </td>
+    </tr>
+    <tr>
+        <td>
+            CitizenId
+        </td>
+        <td>
+            @Model.UserProfile.CitizenId
+        </td>
+    </tr>
+    <tr>
+        <td>
+            IALLevel
+        </td>
+        <td>
+            @Model.UserProfile.IALLevel
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Mobile
+        </td>
+        <td>
+            @Model.UserProfile.Mobile
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Email
+        </td>
+        <td>
+            @Model.UserProfile.Email
+        </td>
+    </tr>
+
+</table>
+
+}
+else
+{
+    <h3 style="color: red">No profile found!!!!</h3>
+
+}
