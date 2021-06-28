@@ -60,14 +60,21 @@ namespace DGA.RelyingParty.OpenID_Connect.MVC.Controllers
             return View(profile);
         }
 
-        public async Task<IActionResult> Logout()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                await httpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            }
+        //Local logout only
+        //public async Task<IActionResult> Logout()
+        //{
+        //    if (User.Identity.IsAuthenticated)
+        //    {
+        //        await httpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        //    }
 
-            return RedirectToAction("Index", "Home");
+        //    return RedirectToAction("Index", "Home");
+        //}
+
+        //DGA Digital ID logout
+        public IActionResult Logout()
+        {
+            return SignOut("Cookies", OpenIdConnectDefaults.AuthenticationScheme);
         }
     }
 }

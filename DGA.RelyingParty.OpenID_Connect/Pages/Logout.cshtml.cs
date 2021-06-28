@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -18,14 +19,22 @@ namespace DGA.RelyingParty.OpenID_Connect.Pages
         {
             httpContext = httpContextAccessor.HttpContext;
         }
-        public async Task<IActionResult> OnGet()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                await httpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            }
 
-            return Redirect("/Index");
+        //Local logout only
+        //public async Task<IActionResult> OnGet()
+        //{
+        //    if (User.Identity.IsAuthenticated)
+        //    {
+        //        await httpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        //    }
+
+        //    return Redirect("/Index");
+        //}
+
+        //DGA Digital ID logout
+        public IActionResult OnGet()
+        {
+            return SignOut("Cookies", OpenIdConnectDefaults.AuthenticationScheme);
         }
     }
 }
