@@ -6,10 +6,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DGA.RelyingParty.Utilities" Version="1.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DGA.RelyingParty.OpenID_Connect.MVC\DGA.RelyingParty.OpenID_Connect.MVC.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DGA.RelyingParty.Utilities">
+      <HintPath>..\..\DGA_RelyingParty\DGA.RelyingParty.Utilities\bin\Release\netcoreapp3.1\DGA.RelyingParty.Utilities.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
