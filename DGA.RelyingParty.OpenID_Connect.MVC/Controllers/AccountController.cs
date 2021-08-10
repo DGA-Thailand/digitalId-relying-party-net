@@ -76,5 +76,15 @@ namespace DGA.RelyingParty.OpenID_Connect.MVC.Controllers
         {
             return SignOut("Cookies", OpenIdConnectDefaults.AuthenticationScheme);
         }
+
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
+
+        public IActionResult RemoteFailure()
+        {
+            return View();
+        }
     }
 }

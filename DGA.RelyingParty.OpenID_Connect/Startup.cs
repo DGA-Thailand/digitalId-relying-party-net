@@ -80,6 +80,22 @@ namespace DGA.RelyingParty.OpenID_Connect
                 options.ClaimActions.MapJsonKey(DGAScope.UserId, DGAScope.UserId);
                 options.ClaimActions.MapJsonKey(DGAScope.UserName, DGAScope.UserName);
 
+                options.Events = new OpenIdConnectEvents
+                {
+                    OnRemoteFailure = context => {
+                        context.Response.Redirect("/RemoteFailure");
+                        context.HandleResponse();
+
+                        return Task.FromResult(0);
+                    },
+                    OnAccessDenied = context => {
+                        context.Response.Redirect("/AccessDenied");
+                        context.HandleResponse();
+
+                        return Task.FromResult(0);
+                    }
+                };
+
                 options.SaveTokens = true;
             });
 
